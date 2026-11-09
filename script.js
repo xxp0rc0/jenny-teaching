@@ -19,7 +19,7 @@ const translations = {
     labelName:'Your name *',labelEmail:'Email address *',labelCourse:'Course to study *',chooseCourse:'Choose your course',labelTime:'Preferred time to study *',labelPurpose:'Purpose of studying *',labelMessage:'Message to teacher (optional)',
     namePlaceholder:'What should I call you?',emailPlaceholder:'you@example.com',timePlaceholder:'e.g. Weekdays after 7 PM (your time zone)',purposePlaceholder:'What would you like to achieve?',messagePlaceholder:"Anything else you'd like me to know?",
     formPrivacy:'Your information will only be used to respond to your lesson inquiry.',submit:'Get in touch ↗',formNote:'Your application is sent securely through this form — no email app needed.',footer:'Made for curious learners ✦',
-    reviewsKicker:'KIND WORDS REVIEWS',reviewsHeadline:'Learning feels easier when someone believes in you.',reviewsLink:'Read the latest testimonials →',reviewsDisclosure:'Illustrative testimonials only — replace these examples with verified student feedback before publishing.',reviewsBack:'← Back to Jenny’s website',reviewsPageTitle:'Words from the classroom.',reviewsPageSubtitle:'A space for student stories, little breakthroughs, and big moments of confidence.',reviewsCta:'Your story could start here.',dialogTag:'LET’S LEARN TOGETHER ✦',dialogLearn:'What we’ll explore',dialogFor:'Who is it for?',dialogNote:'Lessons are tailored to your goals. Schedule and pricing are confirmed directly with Jenny.',dialogApply:'Apply for this course ↗',
+    reviewsKicker:'KIND WORDS · SAMPLE REVIEWS',reviewsHeadline:'Learning feels easier when someone believes in you.',reviewsLink:'Read the latest testimonials →',reviewsDisclosure:'Illustrative testimonials only — replace these examples with verified student feedback before publishing.',reviewsBack:'← Back to Jenny’s website',reviewsPageTitle:'Words from the classroom.',reviewsPageSubtitle:'A space for student stories, little breakthroughs, and big moments of confidence.',reviewsCta:'Your story could start here.',dialogTag:'LET’S LEARN TOGETHER ✦',dialogLearn:'What we’ll explore',dialogFor:'Who is it for?',dialogNote:'Lessons are tailored to your goals. Schedule and pricing are confirmed directly with Jenny.',dialogApply:'Apply for this course ↗',
     invalid:'Please complete all required fields with a valid email address.',opened:'Your email app should open now. Please press Send to complete your application.',subject:'New student application',
     emailName:'Name',emailEmail:'Email',emailCourse:'Course',emailTime:'Preferred study time',emailPurpose:'Purpose of studying',emailMessage:'Message to teacher',
   },
@@ -49,9 +49,9 @@ const translations = {
   }
 };
 const APPLICATION_EMAIL='Haoanh221197@gmail.com';
-let currentLang='en';
+let currentLang='ja';
 function setLanguage(lang){
-  currentLang=translations[lang]?lang:'en';
+  currentLang=translations[lang]?lang:'ja';
   try{sessionStorage.setItem('jennyLang',currentLang)}catch(e){}
   const t=translations[currentLang];
   document.documentElement.lang=currentLang;
@@ -167,5 +167,5 @@ function renderReviews(){
  const featured=document.getElementById('featuredReview');if(featured){featured.replaceChildren(reviewElement(list[2],2));}
  const all=document.getElementById('allReviews');if(all){all.replaceChildren();list.forEach((r,i)=>all.append(reviewElement(r,i)));}
 }
-let initialLang='en';try{initialLang=sessionStorage.getItem('jennyLang')||'en'}catch(e){}
+let initialLang='ja';try{initialLang=sessionStorage.getItem('jennyLang')||'ja'}catch(e){}
 setLanguage(initialLang);
