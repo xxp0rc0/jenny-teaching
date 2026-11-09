@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#fff2e8">
+<meta name="description" content="Personal English and Vietnamese lessons with Jenny — practical, encouraging 1:1 language learning.">
+<title>Jenny — Learn with confidence</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="site-shell">
+  <div class="decor decor-left">✳</div><div class="decor decor-right"></div>
+  <header class="site-header"><div class="header-orbit" aria-hidden="true">✳</div>
+    <a class="brand" href="#home" aria-label="Jenny home"><span class="brand-mark">J</span><span>jenny.learn</span></a>
+    <button class="menu-toggle" aria-expanded="false" aria-controls="nav">Menu ☰</button>
+    <nav id="nav">
+      <a href="#about" data-i18n="navAbout">About</a><a href="#courses" data-i18n="navCourses">What I Teach</a><a href="#approach" data-i18n="navApproach">My Approach</a><a href="#testimonials" data-i18n="navTestimonials">Testimonials</a><a href="#contact" data-i18n="navContact">Apply</a><div class="lang-switch" role="group" aria-label="Language"><button type="button" class="lang-btn active" data-lang="en" aria-pressed="true">EN</button><button type="button" class="lang-btn" data-lang="ja" aria-pressed="false">日本語</button></div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-content reveal">
+        <div class="eyebrow" data-i18n="heroEyebrow">Hi there! I'm Jenny 👋</div>
+        <h1><span data-i18n="heroTitle">Let’s make languages click.</span></h1>
+        <p class="hero-copy" data-i18n="heroCopy">Friendly, practical 1:1 English and Vietnamese lessons, plus Vietnamese cuisine cooking classes, designed around you. Learn with confidence and enjoy every little win along the way.</p>
+        <div class="actions">
+          <a class="btn btn-primary" href="#contact"><span data-i18n="heroCTA">Apply to learn</span> <span>↗</span></a>
+          <a class="btn btn-secondary" href="#courses"><span data-i18n="heroExplore">Explore lessons ↓</span></a>
+        </div>
+      </div>
+      <div class="hero-art reveal">
+        <div class="name-pill">Jenny!</div>
+        <div class="photo-frame">
+          <img src="assets/jenny-autumn.png" alt="Jenny in an autumn park" class="hero-photo" loading="eager">
+        </div>
+        <!-- <div class="sticker sticker-book" aria-hidden="true">ABC</div> -->
+        <div class="sticker sticker-star" aria-hidden="true">✦</div>
+        <div class="sticker sticker-smile" aria-hidden="true">☺</div><div class="sticker sticker-heart" aria-hidden="true">♥</div><div class="sticker sticker-bubble" aria-hidden="true">こんにちは!</div>
+      </div>
+    </section>
+
+    <section class="section reveal" id="about">
+      <div class="section-heading"><div class="eyebrow" data-i18n="aboutEyebrow">A little about me</div><h2 data-i18n="aboutTitle">Language learning, with a human touch.</h2><p data-i18n="aboutSubtitle">Good lessons should feel personal, encouraging and useful in real life.</p></div>
+      <div class="about-grid">
+        <div class="about-note"><h3 data-i18n="aboutCard">Curious minds. Real conversations. Big progress.</h3><div class="scribble" aria-hidden="true">✎</div></div>
+        <div class="about-text">
+          <p data-i18n="aboutP1">I’m Jenny, a language teacher with five years of experience helping learners build confidence in English and Vietnamese. I graduated from Foreign Trade University with a degree in Business English, and I speak Japanese too — so I understand what it feels like to learn and use a language across cultures.</p>
+          <p data-i18n="aboutP2">My goal is simple: make every lesson practical, supportive and tailored to your goals, whether you’re starting from the basics or getting ready to speak more naturally.</p>
+          <div class="facts"><span class="fact" data-i18n="fact1">5 years teaching</span><span class="fact">TOEIC 900+</span><span class="fact" data-i18n="fact3">Japanese speaker</span><span class="fact" data-i18n="fact4">FTU graduate</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section testimonials-section reveal" id="testimonials">
+      <div class="testimonials-kicker" data-i18n="reviewsKicker">KIND WORDS · REVIEWS</div>
+      <div class="testimonials-layout">
+        <div class="review-list" id="homeReviews"></div>
+        <div class="review-feature">
+          <h2 data-i18n="reviewsHeadline">Learning feels easier when someone believes in you.</h2>
+          <div class="featured-review" id="featuredReview"></div>
+          <a class="text-arrow" href="testimonials.html" data-i18n="reviewsLink">Read the latest testimonials →</a>
+        </div>
+      </div>
+    </section>
+
+
+    <section class="section reveal" id="courses">
+      <div class="section-heading"><div class="eyebrow" data-i18n="coursesEyebrow">Pick your learning adventure</div><h2 data-i18n="coursesTitle">What I teach</h2><p data-i18n="coursesSubtitle">Personal lessons shaped around your level, pace and goals.</p></div>
+      <div class="course-grid">
+        <article class="course"><div class="course-icon">🇬🇧</div><h3 data-i18n="englishTitle">English 1:1</h3><p data-i18n="englishDesc">Build strong English foundations with tailored private lessons for everyday life, study, or work.</p><button type="button" data-course="english" class="course-open" aria-haspopup="dialog" aria-controls="courseDialog" data-i18n="courseDetails">Explore course details ↗</button></article>
+        <article class="course"><div class="course-icon">🇻🇳</div><h3 data-i18n="vietnameseTitle">Vietnamese 1:1</h3><p data-i18n="vietnameseDesc">Discover practical Vietnamese for conversations, travel, relationships and local culture.</p><button type="button" data-course="vietnamese" class="course-open" aria-haspopup="dialog" aria-controls="courseDialog" data-i18n="courseDetails">Explore course details ↗</button></article>
+        <article class="course"><div class="course-icon">🍜</div><h3 data-i18n="cookingTitle">Vietnamese Cuisine Cooking</h3><p data-i18n="cookingDesc">Explore Vietnamese food and learn to cook delicious dishes in a friendly, guided class.</p><button type="button" data-course="cooking" class="course-open" aria-haspopup="dialog" aria-controls="courseDialog" data-i18n="courseDetails">Explore course details ↗</button></article>
+      </div>
+    </section>
+
+    <section class="section method reveal" id="approach">
+      <div class="section-heading"><div class="eyebrow" data-i18n="methodEyebrow">No one-size-fits-all lessons</div><h2 data-i18n="methodTitle">Your goals set the pace.</h2><p data-i18n="methodSubtitle">A simple, collaborative approach to making progress that lasts.</p></div>
+      <div class="method-grid">
+        <article class="method-item"><div class="method-number">01</div><h3 data-i18n="method1Title">We get to know you</h3><p data-i18n="method1Desc">We talk about your level, interests and what you want to achieve.</p></article>
+        <article class="method-item"><div class="method-number">02</div><h3 data-i18n="method2Title">Make a personal plan</h3><p data-i18n="method2Desc">Lessons focus on the skills and situations that matter most to you.</p></article>
+        <article class="method-item"><div class="method-number">03</div><h3 data-i18n="method3Title">Practice & grow</h3><p data-i18n="method3Desc">Get supportive feedback, useful practice and clear next steps after each lesson.</p></article>
+      </div>
+    </section>
+
+    <section class="section reveal">
+      <div class="section-heading"><div class="eyebrow" data-i18n="proofEyebrow">A little proof, a lot of passion</div><h2 data-i18n="proofTitle">Experience that supports your progress.</h2></div>
+      <div class="credentials">
+        <div class="credential"><strong data-i18n="years">5 years</strong><span data-i18n="teaching">Teaching English and Vietnamese</span></div>
+        <div class="credential"><strong>TOEIC 900+</strong><span data-i18n="toeic">English proficiency credential</span></div>
+      </div>
+    </section>
+
+
+    <section class="application-section section reveal" id="contact">
+      <div class="section-heading"><div class="eyebrow" data-i18n="applyEyebrow">Start something wonderful</div><h2 data-i18n="applyTitle">Let's learn together!</h2><p data-i18n="applySubtitle">Tell me a little about yourself and what you'd love to learn. I'll get back to you soon!</p></div>
+      <div class="application-layout">
+        <aside class="application-aside"><div class="aside-doodle" aria-hidden="true">✉</div><h3 data-i18n="asideTitle">Your learning adventure starts here.</h3><p data-i18n="asideDesc">A few details help me prepare the right learning experience for you.</p><div class="aside-sticker" data-i18n="asideSticker">✦ Let's go! ✦</div></aside>
+        <form id="applicationForm" class="application-form" novalidate>
+          <div class="form-grid">
+            <label class="field"><span data-i18n="labelName">Your name *</span><input type="text" name="student_name" autocomplete="name" required maxlength="100" data-placeholder="namePlaceholder" placeholder="What should I call you?"></label>
+            <label class="field"><span data-i18n="labelEmail">Email address *</span><input type="email" name="student_email" autocomplete="email" required maxlength="254" data-placeholder="emailPlaceholder" placeholder="you@example.com"></label>
+            <label class="field full"><span data-i18n="labelCourse">Course to study *</span><select name="course" id="courseSelect" required><option value="" data-i18n="chooseCourse">Choose your course</option><option value="english" data-i18n="englishTitle">English 1:1</option><option value="vietnamese" data-i18n="vietnameseTitle">Vietnamese 1:1</option><option value="cooking" data-i18n="cookingTitle">Vietnamese Cuisine Cooking</option></select></label>
+            <label class="field full"><span data-i18n="labelTime">Preferred time to study *</span><input type="text" name="preferred_time" required maxlength="150" data-placeholder="timePlaceholder" placeholder="e.g. Weekdays after 7 PM (your time zone)"></label>
+            <label class="field full"><span data-i18n="labelPurpose">Purpose of studying *</span><textarea name="purpose" required maxlength="2000" rows="3" data-placeholder="purposePlaceholder" placeholder="What would you like to achieve?"></textarea></label>
+            <label class="field full"><span data-i18n="labelMessage">Message to teacher (optional)</span><textarea name="message" maxlength="3000" rows="3" data-placeholder="messagePlaceholder" placeholder="Anything else you'd like me to know?"></textarea></label>
+          </div>
+          <p class="form-privacy" data-i18n="formPrivacy">Your information will only be used to respond to your lesson inquiry.</p>
+          <button type="submit" class="btn btn-primary submit-btn"><span data-i18n="submit">Get in touch ↗</span></button>
+          <p id="formStatus" class="form-status" role="status" aria-live="polite"></p>
+          <p class="form-note" data-i18n="formNote">Your email app will open with your application ready to send. Please press Send there to finish applying.</p>
+        </form>
+      </div>
+    </section>
+    <dialog class="course-dialog" id="courseDialog" aria-labelledby="courseDialogTitle">
+      <button type="button" class="dialog-close" id="closeCourseDialog" aria-label="Close">×</button>
+      <div class="dialog-tag" data-i18n="dialogTag">LET'S LEARN TOGETHER ✦</div>
+      <div class="dialog-emoji" id="courseDialogEmoji" aria-hidden="true">✦</div>
+      <h2 id="courseDialogTitle"></h2>
+      <p id="courseDialogIntro"></p>
+      <h3 data-i18n="dialogLearn">What we'll explore</h3>
+      <ul id="courseDialogTopics"></ul>
+      <h3 data-i18n="dialogFor">Who is it for?</h3>
+      <p id="courseDialogAudience"></p>
+      <p class="dialog-note" data-i18n="dialogNote">Lesson plans are tailored to your goals. Schedule and pricing are confirmed directly with Jenny.</p>
+      <a href="#contact" class="btn btn-primary" id="dialogApply" data-i18n="dialogApply">Apply for this course ↗</a>
+    </dialog>
+  </main>
+  <footer><span>© <span id="year"></span> Jenny · <span data-i18n="footer">Made for curious learners ✦</span></span><a href="mailto:Haoanh221197@gmail.com">hoanganh1869@gmail.com</a></footer>
+</div>
+<script src="script.js" defer></script>
+</body>
+</html>
