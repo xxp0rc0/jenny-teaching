@@ -240,3 +240,13 @@ footer{padding-left:clamp(24px,7vw,110px);padding-right:clamp(24px,7vw,110px)}
  .hero-art .sticker-heart{left:0;bottom:19%}
  .hero-art .sticker-bubble{left:0;top:8%}
 }
+
+/* V7 — keep mobile navigation above the hero portrait and stickers */
+.site-header{position:relative;z-index:1000;isolation:isolate;overflow:visible}
+.site-header .menu-toggle{position:relative;z-index:1002;cursor:pointer}
+.site-header nav{z-index:1001}
+.hero{position:relative;z-index:1}
+@media(max-width:760px){
+ .site-header nav{top:calc(100% - 3px);left:22px;right:22px;max-height:calc(100dvh - 90px);overflow-y:auto;overscroll-behavior:contain;z-index:1001}
+ .site-header nav.open{display:flex}
+}

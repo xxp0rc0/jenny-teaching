@@ -18,8 +18,8 @@ const translations = {
     applyEyebrow:'Start something wonderful',applyTitle:"Let's learn together!",applySubtitle:"Tell me a little about yourself and what you'd love to learn. I'll get back to you soon!",asideTitle:'Your learning adventure starts here.',asideDesc:'A few details help me prepare the right learning experience for you.',asideSticker:'✦ Let’s go! ✦',
     labelName:'Your name *',labelEmail:'Email address *',labelCourse:'Course to study *',chooseCourse:'Choose your course',labelTime:'Preferred time to study *',labelPurpose:'Purpose of studying *',labelMessage:'Message to teacher (optional)',
     namePlaceholder:'What should I call you?',emailPlaceholder:'you@example.com',timePlaceholder:'e.g. Weekdays after 7 PM (your time zone)',purposePlaceholder:'What would you like to achieve?',messagePlaceholder:"Anything else you'd like me to know?",
-    formPrivacy:'Your information will only be used to respond to your lesson inquiry.',submit:'Get in touch ↗',formNote:'Your email app will open with your application ready to send. Please press Send there to finish applying.',footer:'Made for curious learners ✦',
-    reviewsKicker:'KIND WORDS · REVIEWS',reviewsHeadline:'Learning feels easier when someone believes in you.',reviewsLink:'Read the latest testimonials →',reviewsBack:'← Back to Jenny’s website',reviewsPageTitle:'Words from the classroom.',reviewsPageSubtitle:'A space for student stories, little breakthroughs, and big moments of confidence.',reviewsCta:'Your story could start here.',dialogTag:'LET’S LEARN TOGETHER ✦',dialogLearn:'What we’ll explore',dialogFor:'Who is it for?',dialogNote:'Lessons are tailored to your goals. Schedule and pricing are confirmed directly with Jenny.',dialogApply:'Apply for this course ↗',
+    formPrivacy:'Your information will only be used to respond to your lesson inquiry.',submit:'Get in touch ↗',formNote:'Your application is sent securely through this form — no email app needed.',footer:'Made for curious learners ✦',
+    reviewsKicker:'KIND WORDS REVIEWS',reviewsHeadline:'Learning feels easier when someone believes in you.',reviewsLink:'Read the latest testimonials →',reviewsDisclosure:'Illustrative testimonials only — replace these examples with verified student feedback before publishing.',reviewsBack:'← Back to Jenny’s website',reviewsPageTitle:'Words from the classroom.',reviewsPageSubtitle:'A space for student stories, little breakthroughs, and big moments of confidence.',reviewsCta:'Your story could start here.',dialogTag:'LET’S LEARN TOGETHER ✦',dialogLearn:'What we’ll explore',dialogFor:'Who is it for?',dialogNote:'Lessons are tailored to your goals. Schedule and pricing are confirmed directly with Jenny.',dialogApply:'Apply for this course ↗',
     invalid:'Please complete all required fields with a valid email address.',opened:'Your email app should open now. Please press Send to complete your application.',subject:'New student application',
     emailName:'Name',emailEmail:'Email',emailCourse:'Course',emailTime:'Preferred study time',emailPurpose:'Purpose of studying',emailMessage:'Message to teacher',
   },
@@ -42,7 +42,7 @@ const translations = {
     applyEyebrow:'ここから始めよう',applyTitle:'一緒に学びませんか？',applySubtitle:'学びたいことやご希望を教えてください。確認後、メールでご連絡します。',asideTitle:'あなたの新しい学びが、ここから始まります。',asideDesc:'ご希望に合ったレッスンをご案内するため、いくつか教えてください。',asideSticker:'✦ はじめよう！ ✦',
     labelName:'お名前 *',labelEmail:'メールアドレス *',labelCourse:'希望するレッスン *',chooseCourse:'レッスンを選択してください',labelTime:'希望する曜日・時間帯 *',labelPurpose:'学習目的 *',labelMessage:'先生へのメッセージ（任意）',
     namePlaceholder:'お名前を入力してください',emailPlaceholder:'you@example.com',timePlaceholder:'例：平日19時以降（タイムゾーンも記入）',purposePlaceholder:'どんなことを学びたいですか？',messagePlaceholder:'その他、伝えておきたいことがあればどうぞ',
-    formPrivacy:'入力された情報は、レッスンのお問い合わせへの返信にのみ使用します。',submit:'お問い合わせを送る ↗',formNote:'メールアプリが開きます。内容を確認し、「送信」を押してお申し込みを完了してください。',footer:'学ぶ楽しさを、すべての人に ✦',
+    formPrivacy:'入力された情報は、レッスンのお問い合わせへの返信にのみ使用します。',submit:'お問い合わせを送る ↗',formNote:'このフォームから直接送信できます。メールアプリを開く必要はありません。',footer:'学ぶ楽しさを、すべての人に ✦',
     reviewsKicker:'受講者の声 · サンプル',reviewsHeadline:'「できた！」の瞬間を、一緒に増やしていきましょう。',reviewsLink:'受講者の声をもっと見る →',reviewsDisclosure:'以下はデザイン確認用の架空のレビューです。公開前に実際の受講者から許可を得た感想に差し替えてください。',reviewsBack:'← ジェニーのサイトへ戻る',reviewsPageTitle:'学びのストーリー。',reviewsPageSubtitle:'小さな成長から大きな自信へ。受講者の声を紹介するページです。',reviewsCta:'次はあなたの番です。',dialogTag:'一緒に楽しく学ぼう ✦',dialogLearn:'レッスンで学べること',dialogFor:'こんな方におすすめ',dialogNote:'内容は目標に合わせて調整します。日程と料金はジェニーに直接お問い合わせください。',dialogApply:'このレッスンに申し込む ↗',
     invalid:'必須項目を入力し、有効なメールアドレスをご確認ください。',opened:'メールアプリが開きます。送信ボタンを押してお申し込みを完了してください。',subject:'新しいレッスンのお申し込み',
     emailName:'お名前',emailEmail:'メール',emailCourse:'希望レッスン',emailTime:'希望日時',emailPurpose:'学習目的',emailMessage:'メッセージ',
@@ -73,33 +73,39 @@ if('IntersectionObserver' in window){
   document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
 }else{document.querySelectorAll('.reveal').forEach(el=>el.classList.add('visible'));}
 document.querySelectorAll('[data-course]').forEach(a=>a.addEventListener('click',event=>{event.preventDefault();openCourse(a.dataset.course);}));
+const FORMSPREE_ENDPOINT='https://formspree.io/f/xnppkgpr';
 const form=document.querySelector('#applicationForm');
-if(form)form.addEventListener('submit',event=>{
+if(form)form.addEventListener('submit',async event=>{
   event.preventDefault();
   const t=translations[currentLang];
   const status=document.querySelector('#formStatus');
   if(!form.checkValidity()){
     status.textContent=t.invalid;status.className='form-status error';form.reportValidity();return;
   }
-  const fields=new FormData(form);
-  const selected=document.querySelector('#courseSelect');
-  const courseLabel=selected.options[selected.selectedIndex].textContent;
-  const lines=[
-    [t.emailName,fields.get('student_name')],
-    [t.emailEmail,fields.get('student_email')],
-    [t.emailCourse,courseLabel],
-    [t.emailTime,fields.get('preferred_time')],
-    [t.emailPurpose,fields.get('purpose')],
-    [t.emailMessage,fields.get('message')||'-'],
-  ];
-  const subject=encodeURIComponent(t.subject+' — '+fields.get('student_name'));
-  const body=encodeURIComponent(lines.map(([key,value])=>key+': '+value).join('\n\n'));
-  const mailto='mailto:'+APPLICATION_EMAIL+'?subject='+subject+'&body='+body;
-  status.textContent=t.opened;status.className='form-status success';
-  window.location.href=mailto;
+  const button=form.querySelector('button[type="submit"]');
+  const data=new FormData(form);
+  const courseSelect=document.querySelector('#courseSelect');
+  data.set('course',courseSelect.options[courseSelect.selectedIndex].textContent);
+  data.set('_replyto',String(data.get('student_email')||''));
+  data.set('_subject',t.subject+' — '+data.get('student_name'));
+  button.disabled=true;
+  status.className='form-status';
+  status.textContent=currentLang==='ja'?'送信中です…':'Sending your application…';
+  try{
+    const response=await fetch(FORMSPREE_ENDPOINT,{method:'POST',body:data,headers:{Accept:'application/json'}});
+    if(!response.ok)throw new Error('Form submission failed: '+response.status);
+    status.textContent=currentLang==='ja'?'送信が完了しました！ジェニーからの返信をお待ちください。':'Application sent successfully! Jenny will get back to you soon.';
+    status.className='form-status success';
+    form.reset();
+  }catch(error){
+    console.error('Formspree submission error',error);
+    status.textContent=currentLang==='ja'?'送信できませんでした。時間をおいてもう一度お試しください。':'Could not send your application. Please try again in a moment.';
+    status.className='form-status error';
+  }finally{button.disabled=false;}
 });
 
 
+// Content examples are intentionally fictional; no real student identity or endorsement is claimed.
 const reviews={
  en:[
   {initial:'Hiro',name:'Morita',role:'English 1:1',quote:'I used to hesitate before speaking English. The lessons gave me a comfortable space to practice, make mistakes, and try again.'},
